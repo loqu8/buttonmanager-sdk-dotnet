@@ -83,7 +83,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMCreateButtonReq"></param>
 	 	
-	 	public async Task<BMCreateButtonResponseType> BMCreateButton(BMCreateButtonReq bMCreateButtonReq)
+	 	public async Task<BMCreateButtonResponseType> BMCreateButtonAsync(BMCreateButtonReq bMCreateButtonReq)
 	 	{
 	 		return await BMCreateButtonAsync(bMCreateButtonReq,(string) null);
 	 	}
