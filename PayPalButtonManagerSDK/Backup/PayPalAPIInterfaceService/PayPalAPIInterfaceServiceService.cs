@@ -7,7 +7,6 @@ using PayPal.Util;
 using PayPal.Manager;
 using PayPal.SOAP;
 using PayPal.PayPalAPIInterfaceService.Model;
-using System.Threading.Tasks;
 
 namespace PayPal.PayPalAPIInterfaceService 
 {
@@ -61,7 +60,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMCreateButtonReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMCreateButtonResponseType> BMCreateButtonAsync(BMCreateButtonReq bMCreateButtonReq, string apiUserName)
+	 	public BMCreateButtonResponseType BMCreateButton(BMCreateButtonReq bMCreateButtonReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMCreateButtonReq.BMCreateButtonRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMCreateButtonReq.ToXMLString(null, "BMCreateButtonReq"), null, null);
@@ -71,7 +70,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMCreateButtonResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMCreateButtonResponse']")
 			);
@@ -83,9 +82,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMCreateButtonReq"></param>
 	 	
-	 	public async Task<BMCreateButtonResponseType> BMCreateButton(BMCreateButtonReq bMCreateButtonReq)
+	 	public BMCreateButtonResponseType BMCreateButton(BMCreateButtonReq bMCreateButtonReq)
 	 	{
-	 		return await BMCreateButtonAsync(bMCreateButtonReq,(string) null);
+	 		return BMCreateButton(bMCreateButtonReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -93,7 +92,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMCreateButtonReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMCreateButtonResponseType> BMCreateButtonAsync(BMCreateButtonReq bMCreateButtonReq, ICredential credential)
+	 	public BMCreateButtonResponseType BMCreateButton(BMCreateButtonReq bMCreateButtonReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMCreateButtonReq.BMCreateButtonRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMCreateButtonReq.ToXMLString(null, "BMCreateButtonReq"), null, null);
@@ -103,7 +102,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMCreateButtonResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMCreateButtonResponse']")
 			);
@@ -115,7 +114,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMUpdateButtonReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMUpdateButtonResponseType> BMUpdateButtonAsync(BMUpdateButtonReq bMUpdateButtonReq, string apiUserName)
+	 	public BMUpdateButtonResponseType BMUpdateButton(BMUpdateButtonReq bMUpdateButtonReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMUpdateButtonReq.BMUpdateButtonRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMUpdateButtonReq.ToXMLString(null, "BMUpdateButtonReq"), null, null);
@@ -125,7 +124,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMUpdateButtonResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMUpdateButtonResponse']")
 			);
@@ -137,9 +136,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMUpdateButtonReq"></param>
 	 	
-	 	public async Task<BMUpdateButtonResponseType> BMUpdateButtonAsync(BMUpdateButtonReq bMUpdateButtonReq)
+	 	public BMUpdateButtonResponseType BMUpdateButton(BMUpdateButtonReq bMUpdateButtonReq)
 	 	{
-	 		return await BMUpdateButtonAsync(bMUpdateButtonReq,(string) null);
+	 		return BMUpdateButton(bMUpdateButtonReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -147,7 +146,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMUpdateButtonReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMUpdateButtonResponseType> BMUpdateButtonAsync(BMUpdateButtonReq bMUpdateButtonReq, ICredential credential)
+	 	public BMUpdateButtonResponseType BMUpdateButton(BMUpdateButtonReq bMUpdateButtonReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMUpdateButtonReq.BMUpdateButtonRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMUpdateButtonReq.ToXMLString(null, "BMUpdateButtonReq"), null, null);
@@ -157,7 +156,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMUpdateButtonResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMUpdateButtonResponse']")
 			);
@@ -169,7 +168,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMManageButtonStatusReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMManageButtonStatusResponseType> BMManageButtonStatusAsync(BMManageButtonStatusReq bMManageButtonStatusReq, string apiUserName)
+	 	public BMManageButtonStatusResponseType BMManageButtonStatus(BMManageButtonStatusReq bMManageButtonStatusReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMManageButtonStatusReq.BMManageButtonStatusRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMManageButtonStatusReq.ToXMLString(null, "BMManageButtonStatusReq"), null, null);
@@ -179,7 +178,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMManageButtonStatusResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMManageButtonStatusResponse']")
 			);
@@ -191,9 +190,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMManageButtonStatusReq"></param>
 	 	
-	 	public async Task<BMManageButtonStatusResponseType> BMManageButtonStatusAsync(BMManageButtonStatusReq bMManageButtonStatusReq)
+	 	public BMManageButtonStatusResponseType BMManageButtonStatus(BMManageButtonStatusReq bMManageButtonStatusReq)
 	 	{
-	 		return await BMManageButtonStatusAsync(bMManageButtonStatusReq,(string) null);
+	 		return BMManageButtonStatus(bMManageButtonStatusReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -201,7 +200,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMManageButtonStatusReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMManageButtonStatusResponseType> BMManageButtonStatusAsync(BMManageButtonStatusReq bMManageButtonStatusReq, ICredential credential)
+	 	public BMManageButtonStatusResponseType BMManageButtonStatus(BMManageButtonStatusReq bMManageButtonStatusReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMManageButtonStatusReq.BMManageButtonStatusRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMManageButtonStatusReq.ToXMLString(null, "BMManageButtonStatusReq"), null, null);
@@ -211,7 +210,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMManageButtonStatusResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMManageButtonStatusResponse']")
 			);
@@ -223,7 +222,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetButtonDetailsReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMGetButtonDetailsResponseType> BMGetButtonDetailsAsync(BMGetButtonDetailsReq bMGetButtonDetailsReq, string apiUserName)
+	 	public BMGetButtonDetailsResponseType BMGetButtonDetails(BMGetButtonDetailsReq bMGetButtonDetailsReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMGetButtonDetailsReq.BMGetButtonDetailsRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMGetButtonDetailsReq.ToXMLString(null, "BMGetButtonDetailsReq"), null, null);
@@ -233,7 +232,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMGetButtonDetailsResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMGetButtonDetailsResponse']")
 			);
@@ -245,9 +244,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetButtonDetailsReq"></param>
 	 	
-	 	public async Task<BMGetButtonDetailsResponseType> BMGetButtonDetailsAsync(BMGetButtonDetailsReq bMGetButtonDetailsReq)
+	 	public BMGetButtonDetailsResponseType BMGetButtonDetails(BMGetButtonDetailsReq bMGetButtonDetailsReq)
 	 	{
-	 		return await BMGetButtonDetailsAsync(bMGetButtonDetailsReq,(string) null);
+	 		return BMGetButtonDetails(bMGetButtonDetailsReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -255,7 +254,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetButtonDetailsReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMGetButtonDetailsResponseType> BMGetButtonDetailsAsync(BMGetButtonDetailsReq bMGetButtonDetailsReq, ICredential credential)
+	 	public BMGetButtonDetailsResponseType BMGetButtonDetails(BMGetButtonDetailsReq bMGetButtonDetailsReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMGetButtonDetailsReq.BMGetButtonDetailsRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMGetButtonDetailsReq.ToXMLString(null, "BMGetButtonDetailsReq"), null, null);
@@ -265,7 +264,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMGetButtonDetailsResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMGetButtonDetailsResponse']")
 			);
@@ -277,7 +276,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMSetInventoryReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMSetInventoryResponseType> BMSetInventoryAsync(BMSetInventoryReq bMSetInventoryReq, string apiUserName)
+	 	public BMSetInventoryResponseType BMSetInventory(BMSetInventoryReq bMSetInventoryReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMSetInventoryReq.BMSetInventoryRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMSetInventoryReq.ToXMLString(null, "BMSetInventoryReq"), null, null);
@@ -287,7 +286,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMSetInventoryResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMSetInventoryResponse']")
 			);
@@ -299,9 +298,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMSetInventoryReq"></param>
 	 	
-	 	public async Task<BMSetInventoryResponseType> BMSetInventoryAsync(BMSetInventoryReq bMSetInventoryReq)
+	 	public BMSetInventoryResponseType BMSetInventory(BMSetInventoryReq bMSetInventoryReq)
 	 	{
-	 		return await BMSetInventoryAsync(bMSetInventoryReq,(string) null);
+	 		return BMSetInventory(bMSetInventoryReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -309,7 +308,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMSetInventoryReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMSetInventoryResponseType> BMSetInventoryAsync(BMSetInventoryReq bMSetInventoryReq, ICredential credential)
+	 	public BMSetInventoryResponseType BMSetInventory(BMSetInventoryReq bMSetInventoryReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMSetInventoryReq.BMSetInventoryRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMSetInventoryReq.ToXMLString(null, "BMSetInventoryReq"), null, null);
@@ -319,7 +318,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMSetInventoryResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMSetInventoryResponse']")
 			);
@@ -331,7 +330,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetInventoryReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMGetInventoryResponseType> BMGetInventoryAsync(BMGetInventoryReq bMGetInventoryReq, string apiUserName)
+	 	public BMGetInventoryResponseType BMGetInventory(BMGetInventoryReq bMGetInventoryReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMGetInventoryReq.BMGetInventoryRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMGetInventoryReq.ToXMLString(null, "BMGetInventoryReq"), null, null);
@@ -341,7 +340,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMGetInventoryResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMGetInventoryResponse']")
 			);
@@ -353,9 +352,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetInventoryReq"></param>
 	 	
-	 	public async Task<BMGetInventoryResponseType> BMGetInventoryAsync(BMGetInventoryReq bMGetInventoryReq)
+	 	public BMGetInventoryResponseType BMGetInventory(BMGetInventoryReq bMGetInventoryReq)
 	 	{
-	 		return await BMGetInventoryAsync(bMGetInventoryReq,(string) null);
+	 		return BMGetInventory(bMGetInventoryReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -363,7 +362,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMGetInventoryReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMGetInventoryResponseType> BMGetInventoryAsync(BMGetInventoryReq bMGetInventoryReq, ICredential credential)
+	 	public BMGetInventoryResponseType BMGetInventory(BMGetInventoryReq bMGetInventoryReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMGetInventoryReq.BMGetInventoryRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMGetInventoryReq.ToXMLString(null, "BMGetInventoryReq"), null, null);
@@ -373,7 +372,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMGetInventoryResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMGetInventoryResponse']")
 			);
@@ -385,7 +384,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMButtonSearchReq"></param>
 		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
-	 	public async Task<BMButtonSearchResponseType> BMButtonSearchAsync(BMButtonSearchReq bMButtonSearchReq, string apiUserName)
+	 	public BMButtonSearchResponseType BMButtonSearch(BMButtonSearchReq bMButtonSearchReq, string apiUserName)
 	 	{	 		
 			setStandardParams(bMButtonSearchReq.BMButtonSearchRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMButtonSearchReq.ToXMLString(null, "BMButtonSearchReq"), null, null);
@@ -395,7 +394,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMButtonSearchResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMButtonSearchResponse']")
 			);
@@ -407,9 +406,9 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMButtonSearchReq"></param>
 	 	
-	 	public async Task<BMButtonSearchResponseType> BMButtonSearchAsync(BMButtonSearchReq bMButtonSearchReq)
+	 	public BMButtonSearchResponseType BMButtonSearch(BMButtonSearchReq bMButtonSearchReq)
 	 	{
-	 		return await BMButtonSearchAsync(bMButtonSearchReq,(string) null);
+	 		return BMButtonSearch(bMButtonSearchReq,(string) null);
 	 	}
 	 	
 	 	/// <summary>
@@ -417,7 +416,7 @@ namespace PayPal.PayPalAPIInterfaceService
 	 	/// </summary>
 		///<param name="bMButtonSearchReq"></param>
 		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
-	 	public async Task<BMButtonSearchResponseType> BMButtonSearchAsync(BMButtonSearchReq bMButtonSearchReq, ICredential credential)
+	 	public BMButtonSearchResponseType BMButtonSearch(BMButtonSearchReq bMButtonSearchReq, ICredential credential)
 	 	{	 			 		
 			setStandardParams(bMButtonSearchReq.BMButtonSearchRequest);
 			DefaultSOAPAPICallHandler defaultHandler = new DefaultSOAPAPICallHandler(this.config, bMButtonSearchReq.ToXMLString(null, "BMButtonSearchReq"), null, null);
@@ -427,7 +426,7 @@ namespace PayPal.PayPalAPIInterfaceService
 			((MerchantAPICallPreHandler) apiCallPreHandler).PortName = "PayPalAPI";
 			
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.LoadXml(await CallAsync(apiCallPreHandler));			
+			xmlDocument.LoadXml(Call(apiCallPreHandler));			
 			return new BMButtonSearchResponseType(
 				xmlDocument.SelectSingleNode("*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='BMButtonSearchResponse']")
 			);
