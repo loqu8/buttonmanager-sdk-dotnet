@@ -40,10 +40,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PayPalCoreSDK, Version=1.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\PayPalCoreSDK.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -63,6 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Packages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sdk-core-dotnet\PayPalCoreSDK.csproj">
+      <Project>{1f5ff00b-ce0f-40b8-9bc4-7b5ed2087266}</Project>
+      <Name>PayPalCoreSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
